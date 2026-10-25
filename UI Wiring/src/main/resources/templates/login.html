@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelter — Add Animal</title>
+    <style>
+        body { font-family: sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
+        nav { background: #f1f5f9; padding: 0.6rem 1rem; border-radius: 6px; margin-bottom: 1.5rem; }
+        nav a { margin-right: 1rem; text-decoration: none; color: #2563eb; }
+        nav a:hover { text-decoration: underline; }
+        h1 { border-bottom: 2px solid #333; padding-bottom: 0.4rem; }
+        form { display: grid; gap: 0.5rem; max-width: 480px; margin-top: 1rem; }
+        label { font-weight: bold; }
+        input, select, textarea { padding: 0.4rem; border: 1px solid #ccc; border-radius: 4px; width: 100%; box-sizing: border-box; }
+        button { padding: 0.6rem 1.2rem; background: #2563eb; color: white; border: none; border-radius: 4px; cursor: pointer; width: fit-content; }
+        button:hover { background: #1d4ed8; }
+        .back-link { display: inline-block; margin-top: 1rem; color: #2563eb; }
+        .error { color: #dc2626; margin: 0; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+<h1>Log in</h1>
+<p class="error" th:if="${param.error}">Wrong username or password.</p>
+<p class="info" th:if="${param.logout}">You have been logged out.</p>
+
+<form th:action="@{/login}" method="post">
+  <label for="username">Username</label>
+  <input id="username" name="username" type="text" required autofocus>
+
+  <label for="password">Password</label>
+  <input id="password" name="password" type="password" required>
+
+  <button type="submit">Log in</button>
+</form>
+</body>
+</html>
